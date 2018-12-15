@@ -114,6 +114,7 @@ int main(int argc, char *argv[])
     mvprintw(10, 25, "%s", inicio);
     getch();
     refresh();
+    print_options();
 
     /* getopt() configured options:
      *      *        -h  help
@@ -151,6 +152,13 @@ int main(int argc, char *argv[])
     return EXIT_SUCCESS;
 }
 
+void print_options (void)
+{
+    move(2,1);
+    mvprintw(10, 26, "%s", "Digite o numero da operacao que deseja realizar:\n");
+    refresh();
+    return;
+}
 /* Write your functions here... */
 
 /* ---------------------------------------------------------------------- */

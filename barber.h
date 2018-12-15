@@ -15,3 +15,4 @@ typedef struct cadastro
     serv_t *head;
     struct cadastro *prox;
 } cad_t;
+void print_options (void);
