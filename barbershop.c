@@ -31,7 +31,7 @@
 #include <stdio.h> /* Standard I/O functions */
 #include <stdlib.h> /* Miscellaneous functions (rand, malloc, srand)*/
 #include <getopt.h> /* get options from system argc/argv */
-#include <ncurses.h>
+#include <curses.h>
 #include "barber.h"
 
 /* To include assert.h for diagnostics, do it after #define DEBUG bellow */
@@ -84,7 +84,6 @@
 #define IFDEBUG(M) if(DEBUG) fprintf(stderr, "[DEBUG file:%s line:%d]: " M "\n", __FILE__, __LINE__); else {;}
 
 /* limits */
-#define SBUFF 256 /**< String buffer */
 
 /* ---------------------------------------------------------------------- */
 /* globals */
@@ -102,9 +101,19 @@ void ex17_init(void); /* global initialization function */
 int main(int argc, char *argv[])
 {
     int opt; /* return from getopt() */
+    char inicio[SBUFF] = "Bem vindo ao sistema\n";
 
     IFDEBUG("Starting optarg loop...");
     initscr();
+    start_color();
+    init_pair(1, COLOR_BLACK, COLOR_WHITE);
+    bkgd(COLOR_PAIR(1));
+    move(2,1);
+
+    printw("OLA\n");
+    mvprintw(10, 25, "%s", inicio);
+    getch();
+    refresh();
 
     /* getopt() configured options:
      *      *        -h  help
